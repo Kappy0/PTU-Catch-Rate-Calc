@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<!--index.html
+    	Main page. Shows a table with the inputs to make.
+    -->
+
+<head>
+	<meta charset="utf-8">
+	<title>PTU Catch Rate Calc</title>
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="html5reset.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Load Javascript -->
+    <script src="index.js"></script>
+</head>
+
+<body>
+	<div id="titleHeader">
+    	<h1><em>Pokemon Tabletop United Catch Rate Calculator</em></h1>
+    </div> <!-- end titleHeader div -->
+    
+    <div id="container">       
+        <form name="calcForm">                        
+            <p>Fill in the values and click the "Submit" button.</p>
+                        
+        	<table class="table">
+                <tr>
+                    <th>Var</th>
+                    <th>Input</th>
+                </tr>
+            </table>
+            
+            <p>
+            	<input type="reset" value="Clear Values">
+                <input type="button" value="Submit" onClick="order()">
+            </p>
+            
+            <textarea id="confirmation"></textarea>
+        </form>
+    </div> <!-- end container div -->
+    
+	<footer>
+    	<p>Page last modified: <span id="myDate"></span></p>
+    </footer>
+    
+    <script>
+		var date = document.lastModified;
+		
+		document.getElementById("myDate").innerHTML = date;
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+header
+{
+	float: left;
+}
+
+#titleHeader
+{
+	margin-bottom: .1em;
+}
+
+h1, p
+{
+	color: white;
+}
+
+h1
+{
+	background-color: #180773;
+	
+	height: 2em;
+	
+	font-size: 2.2em;
+	
+	text-align: center;
+	
+	padding-top: .5em;
+	
+	margin: auto;
+}
+
+h2
+{
+	color: #DCF900;
+	
+	font-size: 1.3em;
+	
+	margin-bottom: 1em;
+}
+
+p
+{
+	margin-bottom: 1em;
+}
+
+body
+{
+	background-color: #2E16B1;
+}
+
+#container
+{
+	width: 65%;
+	
+	position: relative;
+		left: .8em;
+		
+	margin: auto;
+}
+
+textarea
+{
+	width: 25em;
+	height: 17em;
+}
+
+footer
+{
+	background-color: #000000;
+	
+	height: 2em;
+		
+	text-align: center;
+	
+	clear: both;
+	
+	padding-top: 1em;
+	
+	margin: auto;
+}
+
+footer p
+{
+	color: #000000; 
+}
+

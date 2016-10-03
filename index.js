@@ -3,9 +3,7 @@
 function calc()
 {
 	//Initialize vars
-	
-	//Catch Rate always starts at 100
-	var catchrate = 100;
+	var catchrate;
 	
 	//Initialize vars that will be assigned from the form
 	var level;
@@ -42,7 +40,8 @@ function calc()
 	
 	if(!checkForNaN(level, maxHP, curHP, evo, numInjuries, numVolatile, numPersistent))
 	{
-		document.getElementById("result").innerHTML = "TEXT WILL GO HERE!";
+		catchrate = calcCatchRate(level, maxHP, curHP, evo, shiny, legend, numInjuries, numVolatile, numPersistent, stuck, slow);
+		document.getElementById("result").innerHTML = "Catch Rate: " + catchrate;
 	}
 	else
 	{
@@ -61,6 +60,100 @@ function checkForNaN(c_level, c_maxHP, c_curHP, c_evo, c_numInjuries, c_numVolat
 	if(isNaN(c_numPersistent)) return true;
 	
 	return false;
+}
+
+function calcCatchRate(c_level, c_maxHP, c_curHP, c_evo, c_shiny, c_legend, c_numInjuries, c_numVolatile,
+						c_numPersistent, c_stuck, c_slow)
+{
+	//Before we begin, calculate the Pokemon's 75%, 50%, and 25% HP marks
+	var seventy_five, fifty, twenty_five;
+	
+	seventy_five = Math.floor(c_maxHP * .75);
+	fifty = Math.floor(c_maxHP / 2);
+	twenty_five = Math.floor(c_maxHP * .25);
+	
+	//Catch rate starts at 100
+	var rate = 100;
+	
+	//First, subtract catchrate from the Pokemon's level x2	
+	rate -= (c_level * 2);
+	
+	//Next, we need to add or substract based on the Pokemon's current HP value.
+	//If curHP > 75%, subtract 30.
+	//If curHP <= 75% AND curHP > 50%, subtract 15.
+	//If curHP <= 50% AND curHP > 25%, catchrate is not modified.
+	//If curHP <= 25% AND curHP != 1, add 15.
+	//If curHP == 1, add 30.
+	if(c_curHP > seventy_five)
+	{
+		rate -= 30;
+	}
+	
+	if(c_curHP <= seventy_five && c_curHP > fifty)
+	{
+		rate -= 15;
+	}
+	
+	if(c_curHP <= twenty_five && c_curHP != 1)
+	{
+		rate += 15;
+	}
+	
+	if(c_curHP == 1)
+	{
+		rate += 30;
+	}
+	
+	//Check evolutionary stage.
+	//If there are 2 evolutions remaining, add 10.
+	//If there is 1 evolution remaining, catchrate is unmodified.
+	//If there are 0 evolutions remaining, subtract 10.
+	if(c_evo == 2)
+	{
+		rate += 10;
+	}
+	 
+	if(c_evo == 0)
+	{
+		rate -= 10;
+	}
+	
+	//Now for rarity.
+	//If a Pokemon is shiny, subtract 10.
+	//If a Pokemon is legendary, subtract 30.
+	if(c_shiny)
+	{
+		rate -= 10;
+	}
+	
+	if(c_legend)
+	{
+		rate -= 30;
+	}
+	
+	//Check for status conditions
+	//For every persistent status affliction, add 10.
+	//For every volatile status condition, add 5.
+	//If a Pokemon is stuck, add 10.
+	//If a Pokemon is slowed, add 5.
+	if(c_stuck)
+	{
+		rate += 10;
+	}
+	
+	if(c_slow)
+	{
+		rate += 10;
+	}
+	
+	rate += (c_numPersistent * 10);
+	rate += (c_numVolatile * 5);
+	
+	//And finally, injuries. 
+	//For every injury, add 5.
+	rate += (c_numInjuries * 5);
+	
+	return rate;
 }
 
 function addLoadEvent(funct)

@@ -6,19 +6,14 @@ header
 	float: left;
 }
 
-#titleHeader
-{
-	margin-bottom: .1em;
-}
-
 h1, p
 {
-	color: white;
+	color: black;
 }
 
 h1
 {
-	background-color: #180773;
+	background-color: #FFFFFF;
 	
 	height: 2em;
 	
@@ -47,7 +42,7 @@ p
 
 body
 {
-	background-color: #2E16B1;
+	background-color: #FFFFFF;
 }
 
 #container
@@ -66,9 +61,34 @@ textarea
 	height: 17em;
 }
 
+.calctable
+{
+	width: 90%;
+	
+	border: .1em solid black;
+	
+	background-color: #452B83;
+	
+	color: white;
+	
+	text-align: center;
+	
+	margin-bottom: .5em;
+}
+
+th, td
+{
+	border: .1em solid black;
+}
+
+.trlight
+{
+	background-color: #6949D7;
+}
+
 footer
 {
-	background-color: #000000;
+	background-color: #FFFFFF;
 	
 	height: 2em;
 		
@@ -83,6 +103,6 @@ footer
 
 footer p
 {
-	color: #000000; 
+	color: #FFFFFF; 
 }
 

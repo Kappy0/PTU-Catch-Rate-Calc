@@ -18,23 +18,90 @@
 
 <body>
 	<div id="titleHeader">
-    	<h1><em>Pokemon Tabletop United Catch Rate Calculator</em></h1>
+    	<h1><em>Pokémon Tabletop United Catch Rate Calculator</em></h1>
     </div> <!-- end titleHeader div -->
     
     <div id="container">       
         <form name="calcForm">                        
             <p>Fill in the values and click the "Submit" button.</p>
                         
-        	<table class="table">
+        	<table class="calctable">
                 <tr>
                     <th>Var</th>
                     <th>Input</th>
+					<th>Notes</th>
                 </tr>
+				
+				<tr>
+					<td><label for="level">Level</label></td>
+					<td><input type="text" id="level" name="level" value="0" size="1"></td>
+					<td>Pokémon’s Current Level</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="maxhp">Max HP</label></td>
+					<td><input type="text" id="maxhp" name="maxhp" value="0" size="1"></td>
+					<td>Pokémon’s Maximum HP</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="curhp">Current HP</label></td>
+					<td><input type="text" id="curhp" name="curhp" value="0" size="1"></td>
+					<td>Pokémon’s Current HP</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="evo">Evo</label></td>
+					<td><input type="text" id="evo" name="evo" value="0" size="1"></td>
+					<td>Remaining Evolutions (0, 1, or 2)</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="shiny">Shiny?</label></td>
+					<td><input type="text" id="shiny" name="shiny" value="n" size="1"></td>
+					<td>Is the Pokémon shiny? (y/n)</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="legend">Legendary?</label></td>
+					<td><input type="text" id="legend" name="legend" value="n" size="1"></td>
+					<td>Is the Pokémon legendary? (y/n)</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="injury">Injuries</label></td>
+					<td><input type="text" id="injury" name="injury" value="0" size="1"></td>
+					<td>Enter the total number of injuries the Pokémon has</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="volatile">Volatile Status</label></td>
+					<td><input type="text" id="volatile" name="volatile" value="0" size="1"></td>
+					<td>Enter the total number of volatile status afflictions the Pokémon has</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="persistent">Persistent Status</label></td>
+					<td><input type="text" id="persistent" name="persistent" value="0" size="1"></td>
+					<td>Enter the total number of persistent status afflictions the Pokémon has</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="stuck">Stuck?</label></td>
+					<td><input type="text" id="stuck" name="stuck" value="n" size="1"></td>
+					<td>Is the Pokémon stuck? (y/n)</td> 
+				</tr>
+				
+				<tr>
+					<td><label for="slow">Slowed?</label></td>
+					<td><input type="text" id="slow" name="slow" value="n" size="1"></td>
+					<td>Is the Pokémon slowed? (y/n)</td> 
+				</tr>
             </table>
             
             <p>
             	<input type="reset" value="Clear Values">
-                <input type="button" value="Submit" onClick="order()">
+                <input type="button" value="Submit" onClick="calc()">
             </p>
             
             <textarea id="confirmation"></textarea>

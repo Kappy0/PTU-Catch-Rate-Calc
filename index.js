@@ -78,7 +78,7 @@ function getDataTables()
 	
 	for(var i = 0; i < tables.length; i++)
 	{
-		if(tables[i].className === "datatable")
+		if(tables[i].className === "calctable")
 		{
 			stripes(tables[i]);
 		}

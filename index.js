@@ -1,52 +1,23 @@
 // JavaScript Document
-// JavaScript Document
-function order()
+
+function calc()
 {
-	var qtySmash64, qtyMelee, qtyBrawl;
-	var smash64Amt, meleeAmt, brawlAmt;
-	var subTotal, total, tax, taxAmt;
+	//Initialize vars
 	
-	taxAmt = 5 / 100;
+	//Catch Rate always starts at 100
+	var catchrate = 100;
 	
-	qtySmash64 = parseInt(document.orderForm.smash64.value);
-	qtyMelee = parseInt(document.orderForm.melee.value);
-	qtyBrawl = parseInt(document.orderForm.brawl.value);
+	//Initialize vars that will be assigned from the form
+	var level;
+	var maxHP, curHP;
+	var evo, shiny, legend;
+	var numInjuries;
+	var numVolatile, numPersistent;
+	var stuck, slow;
 	
-	if(isNaN(qtySmash64))
-	{
-		qtySmash64 = 0;
-	}
 	
-	if(isNaN(qtyMelee))
-	{
-		qtyMelee = 0;
-	}
 	
-	if(isNaN(qtyBrawl))
-	{
-		qtyBrawl = 0;
-	}
-	
-	smash64Amt = qtySmash64 * 19.99;
-	meleeAmt = qtyMelee * 34.99;
-	brawlAmt = qtyBrawl * 49.99;
-	
-	subTotal = smash64Amt + meleeAmt + brawlAmt;
-	
-	tax = subTotal * taxAmt;
-	
-	total = subTotal + tax;
-	
-	document.getElementById("confirmation").innerHTML = "Your Order:" + "\n" +
-    "Amount of " + "Smash 64 " + "copies ordered: " + qtySmash64 + "\n" +
-	"Amount of " + "Melee " + "copies ordered: " + qtyMelee + "\n" + 
-	"Amount of " + "Brawl " + "copies ordered: " + qtyBrawl + "\n" + "\n" +
-	"Total amount for " + "Smash 64: " + "$" + smash64Amt.toFixed(2) + "\n" +
-	"Total amount for " + "Melee: " + "$" + meleeAmt.toFixed(2) + "\n" +
-	"Total amount for " + "Brawl: " + "$" + brawlAmt.toFixed(2) + "\n" + "\n" +
-	"Subtotal: " + "$" + subTotal.toFixed(2) + "\n" +
-	"Tax (5%): " + "$" + tax.toFixed(2) + "\n" + "\n" +
-	"Your total (with tax): " + "$" + total.toFixed(2);
+	document.getElementById("catchrate").innerHTML = "TEXT WILL GO HERE!";
 }
 
 function addLoadEvent(funct)

@@ -28,7 +28,7 @@ function calc()
 	stuck = document.calcForm.stuck.checked;
 	slow = document.calcForm.slow.checked;
 	
-	document.getElementById("result").innerHTML = "Level: " + level + "\n" +
+	/*document.getElementById("result").innerHTML = "Level: " + level + "\n" +
 	"Max HP: " + maxHP + "\n" +
 	"Current HP: " + curHP + "\n" +
 	"Evolutions Remaining: " + evo + "\n" +
@@ -38,32 +38,30 @@ function calc()
 	"Number of Volatile Status Effects: " + numVolatile + "\n" +
 	"Number of Persistent Status Effects: " + numPersistent + "\n" +
 	"Stuck? " + stuck + "\n" +
-	"Slowed? " + slow;
+	"Slowed? " + slow;*/
 	
-	/*if(checkIfNaN(level, maxHP, curHP, evo, numInjuries, numVolatile, numPersistent) == true)
+	if(!checkForNaN(level, maxHP, curHP, evo, numInjuries, numVolatile, numPersistent))
 	{
 		document.getElementById("result").innerHTML = "TEXT WILL GO HERE!";
 	}
 	else
 	{
 		document.getElementById("result").innerHTML = "ERROR! SOME INPUTS NOT ENTERED.";
-	}*/
+	}
 }
 
-/*function checkIfNaN(var c_level, var c_maxHP, var c_curHP, var c_evo, var c_numInjuries, var c_numVolatile, var c_numPersistent)
+function checkForNaN(c_level, c_maxHP, c_curHP, c_evo, c_numInjuries, c_numVolatile, c_numPersistent)
 {
-	var bool = true;
+	if(isNaN(c_level))         return true;
+	if(isNaN(c_maxHP))         return true;
+	if(isNaN(c_curHP))         return true;
+	if(isNaN(c_evo))           return true;
+	if(isNaN(c_numInjuries))   return true;
+	if(isNaN(c_numVolatile))   return true;
+	if(isNaN(c_numPersistent)) return true;
 	
-	if(isNaN(c_level))         {bool = false;}
-	if(isNaN(c_maxHP))         {bool = false;}
-	if(isNaN(c_curHP))         {bool = false;}
-	if(isNaN(c_evo))           {bool = false;}
-	if(isNaN(c_numInjuries))   {bool = false;}
-	if(isNaN(c_numVolatile))   {bool = false;}
-	if(isNaN(c_numPersistent)) {bool = false;}
-	
-	return bool;
-}*/
+	return false;
+}
 
 function addLoadEvent(funct)
 {
